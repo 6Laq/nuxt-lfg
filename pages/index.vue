@@ -1,9 +1,10 @@
 <template>
   <div class="page">
-    <Nav />
+    <nuxt />
+    <Nav class="nav" />
     <div class="page-container">
       <SideMenu class="side-menu" />
-      <Posts class="main-area" :posts="posts" @newPost="handleNewPost" />
+      <Posts class="main-area" :posts="posts" />
     </div>
   </div>
 </template>
@@ -25,58 +26,17 @@ export default {
       name: '',
       posts: []
     }
-  },
-  // computed: {
-  //   posts() {
-  //     return this.$store.state.posts
-  //   }
-  // },
-  // created() {
-  //   this.$store.dispatch('bindTodosRef')
-  // },
-  methods: {
-    handleNewPost(post) {
-      this.$store.dispatch('addPost', { post: { message: post } })
-    }
   }
 }
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.page {
+  height: 100vh;
 }
 .page-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   background-color: #386679;
   overflow: hidden;
   height: 100%;
@@ -84,7 +44,7 @@ export default {
   min-width: 1232px;
 }
 .side-menu {
-  background-color: thistle;
+  background-color: lightgray;
   min-width: 15%;
 }
 .main-area {

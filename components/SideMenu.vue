@@ -23,7 +23,8 @@ export default {}
 .side-menu-box {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  align-content: center;
 }
 .side-search {
   background-color: aliceblue;

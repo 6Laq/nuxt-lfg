@@ -8,16 +8,8 @@
     />
     <button @click="addpost">Submit</button>
     <ul v-if="posts.length">
-      <PostListItem
-        v-for="post in posts"
-        :key="post.id"
-        :post="post"
-        @remove="removePost"
-      />
+      <PostListItem v-for="post in posts" :key="post.id" :post="post" />
     </ul>
-    <p v-else>
-      Make a post
-    </p>
   </div>
 </template>
 
