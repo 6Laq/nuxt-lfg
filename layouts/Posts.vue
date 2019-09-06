@@ -1,15 +1,15 @@
 <template>
   <div>
     <nuxt />
-    <PostInput
-      placeholder="New Post"
-      :value="newPost"
-      @input="newPost = $event"
-    />
-    <button @click="addpost">Submit</button>
-    <ul v-if="posts.length">
-      <PostListItem v-for="post in posts" :key="post.id" :post="post" />
-    </ul>
+    <div class="postInput">
+      <PostInput v-model="newPost" @input="newPost = $event" />
+      <button @click="addpost">Submit</button>
+    </div>
+    <div>
+      <ul v-if="posts.length" class="postList">
+        <PostListItem v-for="post in posts" :key="post.id" :post="post" />
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -42,6 +42,8 @@ export default {
         this.$emit('newPost', trimmedText)
         this.newPost = ''
       }
+      console.log(trimmedText)
+      return this.push({ trimmedText })
     },
     removePost(idToRemove) {
       this.posts = this.posts.filter((post) => {
@@ -51,3 +53,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.postInput {
+  padding: 20px;
+}
+.postList {
+  padding: 20px;
+}
+</style>

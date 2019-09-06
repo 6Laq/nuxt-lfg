@@ -2,7 +2,7 @@
   <input
     type="text"
     class="input"
-    :value="value"
+    placeholder="New Post"
     @input="$emit('input', $event.target.value)"
   />
 </template>
