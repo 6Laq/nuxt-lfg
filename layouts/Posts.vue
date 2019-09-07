@@ -43,7 +43,7 @@ export default {
         this.newPost = ''
       }
       console.log(trimmedText)
-      return this.push({ trimmedText })
+      return this.posts.push({ trimmedText })
     },
     removePost(idToRemove) {
       this.posts = this.posts.filter((post) => {
